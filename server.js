@@ -1,9 +1,18 @@
-const express = require('express');
+const SwaggerExpress = require('swagger-express-mw');
+const app = require('express')();
+const connectDB = require('./config/db');
 
-const app = express();
+const config = {
+  appRoot: __dirname
+};
+connectDB();
 
-app.get('/', (req, res) => res.send('API Running'));
+SwaggerExpress.create(config, function(err, swaggerExpress) {
+  if (err) {
+    throw err;
+  }
+  swaggerExpress.register(app);
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => console.log(`Server started on ${PORT}`));
+  const PORT = process.env.PORT || 10010;
+  app.listen(PORT);
+});
