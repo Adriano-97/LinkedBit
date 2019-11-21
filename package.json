@@ -1,18 +1,21 @@
 {
   "name": "linkedbit",
-  "version": "1.0.0",
-  "description": "Social Network for Developers.",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Template of a Social Network for Developers.",
+  "keywords": [],
+  "author": "Adriano Herrera",
+  "license": "MIT",
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "swagger project start",
+    "edit": "swagger project edit"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Adriano-97/LinkedBit.git"
   },
-  "author": "Adriano Herrera",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Adriano-97/LinkedBit/issues"
   },
@@ -24,11 +27,14 @@
     "express-validator": "^6.2.0",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.11",
-    "request": "^2.88.0"
+    "mongoose": "^5.7.12",
+    "request": "^2.88.0",
+    "swagger-express-mw": "^0.1.0"
   },
   "devDependencies": {
     "concurrently": "^5.0.0",
-    "nodemon": "^1.19.4"
+    "nodemon": "^2.0.0",
+    "should": "^7.1.0",
+    "supertest": "^1.0.0"
   }
 }
