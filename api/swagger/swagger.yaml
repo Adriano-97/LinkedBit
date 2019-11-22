@@ -1,6 +1,6 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
-  version: '0.0.1'
+  version: "0.0.1"
   title: LinkedBit
 # during dev, should point to your local machine
 host: localhost:10010
@@ -19,21 +19,21 @@ produces:
   - application/json
 paths:
   /:
-    x-swagger-router-controller: home
+    x-swagger-router-controller: Home
     get:
       description: Test
       operationId: home
       responses:
-        '200':
+        "200":
           description: Success
           schema:
-            $ref: '#/definitions/TestResponse'
+            $ref: "#/definitions/TestResponse"
         default:
           description: Error
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: "#/definitions/ErrorResponse"
   /post:
-    x-swagger-router-controller: post
+    x-swagger-router-controller: Post
     get:
       description: testing route post
       operationId: getPost
@@ -44,16 +44,16 @@ paths:
           required: false
           type: string
       responses:
-        '200':
+        "200":
           description: OK
           schema:
-            $ref: '#/definitions/TestResponse'
+            $ref: "#/definitions/TestResponse"
         default:
           description: Error
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: "#/definitions/ErrorResponse"
   /auth:
-    x-swagger-router-controller: auth
+    x-swagger-router-controller: Auth
     get:
       description: testing route auth
       operationId: getAuth
@@ -64,36 +64,37 @@ paths:
           required: false
           type: string
       responses:
-        '200':
+        "200":
           description: OK
           schema:
-            $ref: '#/definitions/TestResponse'
+            $ref: "#/definitions/TestResponse"
         default:
           description: Error
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: "#/definitions/ErrorResponse"
   /users:
-    x-swagger-router-controller: users
-    get:
-      description: testing route users
-      operationId: getUsers
+    x-swagger-router-controller: Users
+    post:
+      description: Add a new user
+      operationId: postUsers
       parameters:
         - name: user
-          in: query
-          description: this is a test
-          required: false
-          type: string
-      responses:
-        '200':
-          description: OK
+          in: body
+          description: This query will get the user email and password.
+          required: true
           schema:
-            $ref: '#/definitions/TestResponse'
+            $ref: "#/definitions/NewUser"
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/TestResponse"
         default:
           description: Error
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: "#/definitions/ErrorResponse"
   /profile:
-    x-swagger-router-controller: profile
+    x-swagger-router-controller: Profile
     get:
       description: testing route profile
       operationId: getProfile
@@ -104,14 +105,14 @@ paths:
           required: false
           type: string
       responses:
-        '200':
+        "200":
           description: OK
           schema:
-            $ref: '#/definitions/TestResponse'
+            $ref: "#/definitions/TestResponse"
         default:
           description: Error
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: "#/definitions/ErrorResponse"
 
   /swagger:
     x-swagger-pipe: swagger_raw
@@ -129,3 +130,19 @@ definitions:
     properties:
       message:
         type: string
+  NewUser:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Users Name.
+      email:
+        type: string
+        description: Each user must be identified with a valid and unique email.
+      password:
+        type: string
+        description: Personal user password.
+    required:
+      - name
+      - email
+      - password
