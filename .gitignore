@@ -1,6 +1,9 @@
 #test folder
 test/
 
+#vscode config
+.vscode
+
 # IDE files
 .idea
 
