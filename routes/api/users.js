@@ -8,8 +8,8 @@ const router = express.Router();
 
 const User = require('../../models/User');
 
-// @route api/users
-// @desc Test route
+// @route POST api/users
+// @desc Creates a new User and adds it to the DB
 // @acces Public
 router.post(
   '/',
