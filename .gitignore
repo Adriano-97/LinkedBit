@@ -1,1 +1,5 @@
+#Ignore Node_Modules
 /node_modules
+/client/node_modules
+#Ignore Template
+/client/devconnector_html_theme
